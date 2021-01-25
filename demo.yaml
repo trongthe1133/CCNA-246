@@ -3,12 +3,12 @@
   hosts: all
   gather_facts: false
   tasks:
-    name: int
+  - name: int
     ios_sw:
       name: loopback {{item.number}}
       ipv4: 10.0{{item.number}.1/24}
       state: present
     with_item:
-    - number: 1
-    - number: 2
-    - number: 3
+    - {number: 1}
+    - {number: 2}
+    - {number: 3}
