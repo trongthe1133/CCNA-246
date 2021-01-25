@@ -1,14 +1,14 @@
 ---
-- name: tao lo
+- name: taolo
   hosts: all
-  gather_facts: false
+  gather_facts: no
   tasks:
   - name: int
-    ios_sw:
+    ios_13_interface:
       name: loopback {{item.number}}
-      ipv4: 10.0{{item.number}.1/24}
+      ipv4: 10.0.{{item.number}.1/24}
       state: present
-    with_item:
+    with_items:
     - {number: 1}
     - {number: 2}
     - {number: 3}
